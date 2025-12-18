@@ -1,0 +1,403 @@
+This is a detailed list of all of the intermediate and final output files for the pipeline, for troubleshooting purposes
+
+outputs/
+├── 1a1_dedup_bam/
+│   ├── [Sample_name]_dedup.bam
+│   ├── [Sample_name]_dedup.bam.bai
+│   └── ...
+├── 1a2_clean_bam/
+│   ├── [Sample_name]_dedup_uniq.bam
+│   ├── [Sample_name]_dedup_uniq.bam.bai
+│   └── ...
+├── 1b_filtered_bam/
+│   ├── gtfdb.db
+│   ├── [Sample_name]_dedup_uniq_filtered_1stround.bam
+│   ├── [Sample_name]_dedup_uniq_filtered_1stround.bam.bai
+│   ├── [Sample_name]_dedup_uniq_filtered_2ndround.bam
+│   ├── [Sample_name]_dedup_uniq_filtered_2ndround.bam.bai
+│   ├── [Sample_name]_trans_intron.pkl
+│   ├── [Sample_name]_trans_nointron.pkl
+│   └── ...
+├── 1c_subset_bam/
+│   ├── [Sample_name]_dedup_uniq_[compartment].bam
+│   ├── [Sample_name]_dedup_uniq_[compartment].bam.bai
+│   ├── [Sample_name]_dedup_uniq_filtered_[compartment].bam
+│   ├── [Sample_name]_dedup_uniq_filtered_[compartment].bam.bai
+│   └── ...
+├── 1d_merged_bam/
+│   ├── dedup_uniq_genomicAfiltered_merged.bam
+│   ├── dedup_uniq_genomicAfiltered_merged.bam.bai
+│   ├── dedup_uniq_genomicAfiltered_merged_minus.bam
+│   ├── dedup_uniq_genomicAfiltered_merged_minus.bam.bai
+│   ├── dedup_uniq_genomicAfiltered_merged_minus.stats.txt
+│   ├── dedup_uniq_genomicAfiltered_merged_plus.bam
+│   ├── dedup_uniq_genomicAfiltered_merged_plus.bam.bai
+│   ├── dedup_uniq_genomicAfiltered_merged_plus.stats.txt
+│   ├── dedup_uniq_merged.bam
+│   ├── dedup_uniq_merged.bam.bai
+│   ├── dedup_uniq_merged_minus.bam
+│   ├── dedup_uniq_merged_minus.bam.bai
+│   ├── dedup_uniq_merged_minus.stats.txt
+│   ├── dedup_uniq_merged_plus.bam
+│   ├── dedup_uniq_merged_plus.bam.bai
+│   └── dedup_uniq_merged_plus.stats.txt
+├── 2a_peaks/
+│   ├── all_filtered_reads/
+│   │   ├── dedup_uniq_genomicAfiltered_merged_minus_control_lambda.bdg
+│   │   ├── dedup_uniq_genomicAfiltered_merged_minus_peaks.narrowPeak
+│   │   ├── dedup_uniq_genomicAfiltered_merged_minus_peaks.xls
+│   │   ├── dedup_uniq_genomicAfiltered_merged_minus_peaks_summits.txt
+│   │   ├── dedup_uniq_genomicAfiltered_merged_minus_summits.bed
+│   │   ├── dedup_uniq_genomicAfiltered_merged_minus_treat_pileup.bdg
+│   │   ├── dedup_uniq_genomicAfiltered_merged_plus_control_lambda.bdg
+│   │   ├── dedup_uniq_genomicAfiltered_merged_plus_peaks.narrowPeak
+│   │   ├── dedup_uniq_genomicAfiltered_merged_plus_peaks.xls
+│   │   ├── dedup_uniq_genomicAfiltered_merged_plus_peaks_summits.txt
+│   │   ├── dedup_uniq_genomicAfiltered_merged_plus_summits.bed
+│   │   └── dedup_uniq_genomicAfiltered_merged_plus_treat_pileup.bdg
+│   └── polyA_reads/
+│       ├── polyAreads_beforegenomicAfiltering_minus_nowrongstrand_control_lambda.bdg
+│       ├── polyAreads_beforegenomicAfiltering_minus_nowrongstrand_peaks.narrowPeak
+│       ├── polyAreads_beforegenomicAfiltering_minus_nowrongstrand_peaks.xls
+│       ├── polyAreads_beforegenomicAfiltering_minus_nowrongstrand_peaks_summits.txt
+│       ├── polyAreads_beforegenomicAfiltering_minus_nowrongstrand_summits.bed
+│       ├── polyAreads_beforegenomicAfiltering_minus_nowrongstrand_treat_pileup.bdg
+│       ├── polyAreads_beforegenomicAfiltering_plus_nowrongstrand_control_lambda.bdg
+│       ├── polyAreads_beforegenomicAfiltering_plus_nowrongstrand_peaks.narrowPeak
+│       ├── polyAreads_beforegenomicAfiltering_plus_nowrongstrand_peaks.xls
+│       ├── polyAreads_beforegenomicAfiltering_plus_nowrongstrand_peaks_summits.txt
+│       ├── polyAreads_beforegenomicAfiltering_plus_nowrongstrand_summits.bed
+│       └── polyAreads_beforegenomicAfiltering_plus_nowrongstrand_treat_pileup.bdg
+├── 2b_polya/
+│   ├── after_genomicAfiltering/
+│   │   ├── polyAreads_aftergenomicAfiltering_minus.bed
+│   │   ├── polyAreads_aftergenomicAfiltering_minus_nowrongstrand.bed
+│   │   ├── polyAreads_aftergenomicAfiltering_plus.bed
+│   │   └── polyAreads_aftergenomicAfiltering_plus_nowrongstrand.bed
+│   └── before_genomicAfiltering/
+│       ├── bam_files/
+│       │   ├── polyAreads_beforegenomicAfiltering_minus_nowrongstrand.bam
+│       │   ├── polyAreads_beforegenomicAfiltering_minus_nowrongstrand.bam.bai
+│       │   ├── polyAreads_beforegenomicAfiltering_minus_nowrongstrand.stats.txt
+│       │   ├── polyAreads_beforegenomicAfiltering_plus_nowrongstrand.bam
+│       │   ├── polyAreads_beforegenomicAfiltering_plus_nowrongstrand.bam.bai
+│       │   └── polyAreads_beforegenomicAfiltering_plus_nowrongstrand.stats.txt
+│       ├── read_names/
+│       │   ├── polyAreads_beforegenomicAfiltering_minus_nowrongstrand.csv
+│       │   └── polyAreads_beforegenomicAfiltering_plus_nowrongstrand.csv
+│       ├── polyAreads_beforegenomicAfiltering_minus.bed
+│       ├── polyAreads_beforegenomicAfiltering_minus_nowrongstrand.bed
+│       ├── polyAreads_beforegenomicAfiltering_plus.bed
+│       └── polyAreads_beforegenomicAfiltering_plus_nowrongstrand.bed
+├── 2c1_alignment_signals/
+│   ├── all_filtered_reads/
+│   │   ├── dedup_uniq_genomicAfiltered_merged_minus.bedGraph
+│   │   └── dedup_uniq_genomicAfiltered_merged_plus.bedGraph
+│   └── polyA_reads/
+│       └── *same structure and files as all_filtered_reads folder*
+├── 2c2_split_peaks/
+│   ├── all_filtered_reads/
+│   │   ├── [compartment]_all_filtered_reads_gaps.txt
+│   │   ├── [compartment]_all_filtered_reads_minus_peaks.narrowPeak
+│   │   ├── [compartment]_all_filtered_reads_minus_split.narrowPeak
+│   │   ├── [compartment]_all_filtered_reads_plus_peaks.narrowPeak
+│   │   └── [compartment]_all_filtered_reads_plus_split.narrowPeak
+│   └── polyA_reads/
+│       └── *same structure and files as all_filtered_reads folder*
+├── 2d_intersect_run/
+│   ├── all_filtered_reads/
+│   │   ├── minus/
+│   │   │   ├── 0_peaks_per_chr/
+│   │   │   │   ├── peaks_[chromosome_name]_minus.bed
+│   │   │   │   ├── peaks_[chromosome_name]_sorted_minus.bed
+│   │   │   │   └── ...
+│   │   │   ├── 0_polya_per_chr/
+│   │   │   │   ├── polya_[chromosome_name]_minus.bed
+│   │   │   │   ├── polya_[chromosome_name]_sorted_minus.bed
+│   │   │   │   └── ...
+│   │   │   ├── 1_int_dir/
+│   │   │   │   ├── peaks_int_polya_[chromosome_name]_minus.bed
+│   │   │   │   ├── peaks_int_polya_[chromosome_name]_sorted_minus.bed
+│   │   │   │   ├── peaks_int_polya_[chromosome_name]_tagged_minus.bed
+│   │   │   │   ├── peaks_int_polya_[chromosome_name]_tagged_sorted_minus.bed
+│   │   │   │   └── ...
+│   │   │   ├── 2_peaks_count_dir/
+│   │   │   │   ├── peaks_[chromosome_name]_count_sorted_minus.txt
+│   │   │   │   └── ...
+│   │   │   ├── 3a_peak_ref_table/
+│   │   │   │   ├── peak_ref_[chromosome_name]_minus.bed
+│   │   │   │   ├── peak_ref_updated_[chromosome_name]_minus.bed
+│   │   │   │   └── ...
+│   │   │   ├── 3b_pr_dir/
+│   │   │   │   ├── pr_[chromosome_name]_minus.bed
+│   │   │   │   ├── pr_[chromosome_name]_sorted_minus.bed
+│   │   │   │   └── ...
+│   │   │   └── 4_polya_supported_peak_ref/
+│   │   │       ├── peak_ref_updated_[chromosome_name]_minus_3polya.bed
+│   │   │       └── ...
+│   │   └── plus/
+│   │       ├── 0_peaks_per_chr/
+│   │       │   ├── peaks_[chromosome_name]_plus.bed
+│   │       │   ├── peaks_[chromosome_name]_sorted_plus.bed
+│   │       │   └── ...
+│   │       ├── 0_polya_per_chr/
+│   │       │   ├── polya_[chromosome_name]_plus.bed
+│   │       │   ├── polya_[chromosome_name]_sorted_plus.bed
+│   │       │   └── ...
+│   │       ├── 1_int_dir/
+│   │       │   ├── peaks_int_polya_[chromosome_name]_plus.bed
+│   │       │   ├── peaks_int_polya_[chromosome_name]_sorted_plus.bed
+│   │       │   ├── peaks_int_polya_[chromosome_name]_tagged_plus.bed
+│   │       │   ├── peaks_int_polya_[chromosome_name]_tagged_sorted_plus.bed
+│   │       │   └── ...
+│   │       ├── 2_peaks_count_dir/
+│   │       │   ├── peaks_[chromosome_name]_count_sorted_plus.txt
+│   │       │   └── ...
+│   │       ├── 3a_peak_ref_table/
+│   │       │   ├── peak_ref_[chromosome_name]_plus.bed
+│   │       │   ├── peak_ref_updated_[chromosome_name]_plus.bed
+│   │       │   └── ...
+│   │       ├── 3b_pr_dir/
+│   │       │   ├── pr_[chromosome_name]_plus.bed
+│   │       │   ├── pr_[chromosome_name]_sorted_plus.bed
+│   │       │   └── ...
+│   │       └── 4_polya_supported_peak_ref/
+│   │           ├── peak_ref_updated_[chromosome_name]_plus_3polya.bed
+│   │           └── ...
+│   └── polyA_reads/
+│       └── *same structure and files as all_filtered_reads folder*
+├── 3a_1st_assign_tu/
+│   ├── all_filtered_reads/
+│   │   ├── [compartment]_all_filtered_reads_1sttu_assigned.bed
+│   │   ├── [compartment]_all_filtered_reads_1sttu_assigned_jtu.rds
+│   │   ├── [compartment]_all_filtered_reads_1sttu_assigned_minus.bed
+│   │   ├── [compartment]_all_filtered_reads_1sttu_assigned_peak_universe.txt
+│   │   ├── [compartment]_all_filtered_reads_1sttu_assigned_peak_universe_updated.saf
+│   │   ├── [compartment]_all_filtered_reads_1sttu_assigned_peak_universe_updated.txt
+│   │   ├── [compartment]_all_filtered_reads_1sttu_assigned_plus.bed
+│   │   ├── [compartment]_all_filtered_reads_1sttu_assigned_tu_btwn_peak_distance.txt
+│   │   ├── [compartment]_all_filtered_reads_1sttu_assigned_tu_tss_peak_distance.txt
+│   │   └── [compartment]_all_filtered_reads_1sttu_assigned_turef_flankupdated.rds
+│   └── polyA_reads/
+│       └── *same structure and files as all_filtered_reads folder*
+├── 3b1_filtered_by_PR_width/
+│   ├── all_filtered_reads/
+│   │   └── [compartment]_all_filtered_reads_pr_filtered_peak_ref.txt
+│   └── polyA_reads/
+│       └── [compartment]_polyA_reads_pr_filtered_peak_ref.txt
+├── 3b2_filtered_by_PAS_and_TES/
+│   ├── all_filtered_reads/
+│   │   ├── [compartment]_all_filtered_reads_2ndtu_assigned.bed
+│   │   ├── [compartment]_all_filtered_reads_2ndtu_assigned_jtu.rds
+│   │   ├── [compartment]_all_filtered_reads_2ndtu_assigned_minus.bed
+│   │   ├── [compartment]_all_filtered_reads_2ndtu_assigned_peak_universe_updated.saf
+│   │   ├── [compartment]_all_filtered_reads_2ndtu_assigned_peak_universe_updated.txt
+│   │   ├── [compartment]_all_filtered_reads_2ndtu_assigned_plus.bed
+│   │   ├── [compartment]_all_filtered_reads_2ndtu_assigned_tu_btwn_peak_distance.txt
+│   │   ├── [compartment]_all_filtered_reads_2ndtu_assigned_tu_tss_peak_distance.txt
+│   │   ├── [compartment]_all_filtered_reads_2ndtu_assigned_turef_flankupdated.rds
+│   │   ├── [compartment]_all_filtered_reads_hexamer_check_input.bed
+│   │   ├── [compartment]_all_filtered_reads_hexamer_check_input.fa
+│   │   ├── [compartment]_all_filtered_reads_peaks_PAS_and_TES_filtered.txt
+│   │   ├── [compartment]_all_filtered_reads_peaks_with_hexamer.txt
+│   │   ├── [compartment]_all_filtered_reads_peaks_wo_hexamer.txt
+│   │   └── [compartment]_all_filtered_reads_peaks_wo_hexamer_near_TES.txt
+│   └── polyA_reads/
+│       └── *same structure and files as all_filtered_reads folder*
+├── 3b3_peak_coverage_stats/
+│   ├── all_filtered_reads/
+│   │   ├── [compartment]_all_filtered_reads_peak_count.rds
+│   │   ├── [compartment]_all_filtered_reads_peak_count_updated.rds
+│   │   └── [compartment]_all_filtered_reads_peak_cov_pct.pdf
+│   └── polyA_reads/
+│       └── *same structure and files as all_filtered_reads folder*
+├── 3b4_filtered_by_peak_coverage/
+│   ├── all_filtered_reads/
+│   │   ├── [compartment]_all_filtered_reads_3rdtu_assigned.bed
+│   │   ├── [compartment]_all_filtered_reads_3rdtu_assigned_jtu.rds
+│   │   ├── [compartment]_all_filtered_reads_3rdtu_assigned_minus.bed
+│   │   ├── [compartment]_all_filtered_reads_3rdtu_assigned_peak_universe_updated.saf
+│   │   ├── [compartment]_all_filtered_reads_3rdtu_assigned_peak_universe_updated.txt
+│   │   ├── [compartment]_all_filtered_reads_3rdtu_assigned_plus.bed
+│   │   ├── [compartment]_all_filtered_reads_3rdtu_assigned_tu_btwn_peak_distance.txt
+│   │   ├── [compartment]_all_filtered_reads_3rdtu_assigned_tu_tss_peak_distance.txt
+│   │   ├── [compartment]_all_filtered_reads_3rdtu_assigned_turef_flankupdated.rds
+│   │   └── [compartment]_all_filtered_reads_cov_filtered_peak_ref.txt
+│   └── polyA_reads/
+│       └── *same structure and files as all_filtered_reads folder*
+├── 3c_merged_prongs/
+│   ├── [compartment]_4thtu_assigned.bed
+│   ├── [compartment]_4thtu_assigned_jtu.rds
+│   ├── [compartment]_4thtu_assigned_minus.bed
+│   ├── [compartment]_4thtu_assigned_minus_sorted.bed
+│   ├── [compartment]_4thtu_assigned_peak_universe_updated.saf
+│   ├── [compartment]_4thtu_assigned_peak_universe_updated.txt
+│   ├── [compartment]_4thtu_assigned_plus.bed
+│   ├── [compartment]_4thtu_assigned_plus_sorted.bed
+│   ├── [compartment]_4thtu_assigned_tu_btwn_peak_distance.txt
+│   ├── [compartment]_4thtu_assigned_tu_tss_peak_distance.txt
+│   ├── [compartment]_4thtu_assigned_turef_flankupdated.rds
+│   ├── [compartment]_both_prongs_merged_peak_universe_updated.txt
+│   └── [compartment]_both_prongs_shared_tu.rds
+├── 3d_classified_peaks/
+│   ├── [compartment]_classification_ref.rds
+│   ├── [compartment]_peak_universe_classified.bed
+│   ├── [compartment]_peak_universe_classified.txt
+│   ├── [compartment]_peak_universe_classified_sorted.bed
+│   └── [compartment]_transcripts_causing_peak_fragmentation.txt
+├── 3e_fragmented_peaks_to_merge/
+│   ├── [compartment]_4thtu_assigned_minus_subset.bed
+│   ├── [compartment]_4thtu_assigned_minus_subset.saf
+│   ├── [compartment]_4thtu_assigned_plus_subset.bed
+│   ├── [compartment]_4thtu_assigned_plus_subset.saf
+│   ├── [compartment]_dedup_uniq_genomicAfiltered_minus_subset_spliced_only.bam
+│   ├── [compartment]_dedup_uniq_genomicAfiltered_minus_subset_spliced_only.fastq
+│   ├── [compartment]_dedup_uniq_genomicAfiltered_plus_subset_spliced_only.bam
+│   ├── [compartment]_dedup_uniq_genomicAfiltered_plus_subset_spliced_only.fastq
+│   ├── [compartment]_final_peak_universe_updated.gtf
+│   ├── [compartment]_final_peak_universe_updated.saf
+│   ├── [compartment]_final_peak_universe_updated.txt
+│   ├── [compartment]_minus_subset_peak_count.rds
+│   ├── [compartment]_minus_subset_spliced_reads_peak_count.rds
+│   ├── [compartment]_plus_subset_peak_count.rds
+│   ├── [compartment]_plus_subset_spliced_reads_peak_count.rds
+│   ├── [compartment]_realign_merge_candidates_minus.bedGraph
+│   ├── [compartment]_realign_merge_candidates_minus.bw
+│   ├── [compartment]_realign_merge_candidates_minus.sorted.bam
+│   ├── [compartment]_realign_merge_candidates_minus.sorted.bam.bai
+│   ├── [compartment]_realign_merge_candidates_plus.bedGraph
+│   ├── [compartment]_realign_merge_candidates_plus.bw
+│   ├── [compartment]_realign_merge_candidates_plus.sorted.bam
+│   ├── [compartment]_realign_merge_candidates_plus.sorted.bam.bai
+│   ├── [compartment]_realign_peak_read_pct_hist.png
+│   ├── [compartment]_spliced_read_pct_hist.png
+│   ├── [compartment]_spliced_reads_realign_peaks.txt
+│   ├── [compartment]_spliced_reads_realign_peaks_minus.saf
+│   ├── [compartment]_spliced_reads_realign_peaks_minus_peak_count.rds
+│   ├── [compartment]_spliced_reads_realign_peaks_plus.saf
+│   ├── [compartment]_spliced_reads_realign_peaks_plus_peak_count.rds
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_exons_minus.bed
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_exons_minus.fa
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_exons_plus.bed
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_exons_plus.fa
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_minus.1.bt2
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_minus.2.bt2
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_minus.3.bt2
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_minus.4.bt2
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_minus.fa
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_minus.fa.fai
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_minus.rev.1.bt2
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_minus.rev.2.bt2
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_plus.1.bt2
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_plus.2.bt2
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_plus.3.bt2
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_plus.4.bt2
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_plus.fa
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_plus.fa.fai
+│   ├── [compartment]_transcripts_causing_peak_fragmentation_plus.rev.1.bt2
+│   └── [compartment]_transcripts_causing_peak_fragmentation_plus.rev.2.bt2
+├── 4a_bam_to_fastq/
+│   ├── [Sample_name]/
+│   │   └── [Flowcell_name]/
+│   │       ├── [Sample_name]_S1_L000_R1_001.fastq.gz
+│   │       └── [Sample_name]_S1_L000_R2_001.fastq.gz
+│   └── ...
+├── 4b_cellranger_genecount/
+│   ├── [Sample_name]/
+│   │   └── *standard cellranger count output*
+│   └── ...
+├── 4b_cellranger_peakcount/
+│   ├── [Sample_name]/
+│   │   └── *standard cellranger count output*
+│   └── ...
+├── 5a_merged_cellranger_genecount/
+│   ├── [compartment]_counts.txt
+│   └── [compartment]_meta.txt
+├── 5a_merged_cellranger_peakcount/
+│   ├── [compartment]_counts.txt
+│   └── [compartment]_meta.txt
+├── 5b_APA_testing/
+│   ├── [group_1]_v_[group_2]_APAtest.res.rds
+│   ├── [group_1]_v_[group_2]_DispEsts.png
+│   ├── [group_1]_v_[group_2]_raw.count.txt
+│   ├── [group_1]_v_[group_2]_res.txt
+│   ├── [group_1]_v_[group_2]-[group_1]_minus.bedGraph
+│   ├── [group_1]_v_[group_2]-[group_1]_minus_sorted.bedGraph
+│   ├── [group_1]_v_[group_2]-[group_1]_plus.bedGraph
+│   ├── [group_1]_v_[group_2]-[group_1]_plus_sorted.bedGraph
+│   ├── [group_1]_v_[group_2]-[group_2]_minus.bedGraph
+│   ├── [group_1]_v_[group_2]-[group_2]_minus_sorted.bedGraph
+│   ├── [group_1]_v_[group_2]-[group_2]_plus.bedGraph
+│   └── [group_1]_v_[group_2]-[group_2]_plus_sorted.bedGraph
+├── 5b_DEG_testing/
+│   ├── [group_1]_v_[group_2]_dispersion_plot_fittype_glmGamPoi.png
+│   ├── [group_1]_v_[group_2]_dispersion_plot_fittype_local.png
+│   ├── [group_1]_v_[group_2]_dispersion_plot_fittype_mean.png
+│   ├── [group_1]_v_[group_2]_dispersion_plot_fittype_parametric.png
+│   ├── [group_1]_v_[group_2]_LRT_all_genes.txt
+│   ├── [group_1]_v_[group_2]_LRT_sig_genes.txt
+│   └── [group_1]_v_[group_2]_specific_heatmap.png
+├── filtered_tracks/
+│   ├── [compartment]_peakref_minus.bam
+│   ├── [compartment]_peakref_minus.bam.bai
+│   ├── [compartment]_peakref_minus_polyAsubset.bw
+│   ├── [compartment]_peakref_plus.bam
+│   ├── [compartment]_peakref_plus.bam.bai
+│   └── [compartment]_peakref_plus_polyAsubset.bw
+├── fractional_usage_tracks/
+│   ├── [group_1]_v_[group_2]-[group_1]_minus.bw
+│   ├── [group_1]_v_[group_2]-[group_1]_plus.bw
+│   ├── [group_1]_v_[group_2]-[group_2]_minus.bw
+│   └── [group_1]_v_[group_2]-[group_2]_plus.bw
+├── hg38_[compartment]/
+│   ├── fasta/
+│   │   ├── genome.fa
+│   │   └── genome.fa.fai
+│   ├── genes/
+│   │   └── genes.gtf.gz
+│   ├── star/
+│   │   ├── chrLength.txt
+│   │   ├── chrName.txt
+│   │   ├── chrNameLength.txt
+│   │   ├── chrStart.txt
+│   │   ├── exonGeTrInfo.tab
+│   │   ├── exonInfo.tab
+│   │   ├── geneInfo.tab
+│   │   ├── Genome
+│   │   ├── genomeParameters.txt
+│   │   ├── SA
+│   │   ├── SAindex
+│   │   ├── sjdbInfo.txt
+│   │   ├── sjdbList.fromGTF.out.tab
+│   │   ├── sjdbList.out.tab
+│   │   └── transcriptInfo.tab
+│   └── reference.json
+├── hg38_turef/
+│   ├── genes_with_multiple_TU.csv
+│   ├── turef.rds
+│   └── TUs_overlap_with_othergenes.csv
+├── nuc_freq_plot_201-mer/
+│   ├── [compartment]_nuc_freq.png
+│   └── [compartment]_prop_by_nuc.rds
+├── qc_ucsc_tracks/
+│   ├── dedup_uniq_genomicAfiltered_merged_minus_raw.bw
+│   ├── dedup_uniq_genomicAfiltered_merged_plus_raw.bw
+│   ├── dedup_uniq_merged_minus_raw.bw
+│   └── dedup_uniq_merged_plus_raw.bw
+├── track_annotations/
+│   ├── [compartment]_minus.bigBed
+│   └── [compartment]_plus.bigBed
+├── ucsc_tracks/
+│   └── bigwig_tracks/
+│       └── 1bp/
+│           ├── all_filtered_reads/
+│           │   ├── dedup_uniq_genomicAfiltered_merged_minus_ext.bw
+│           │   ├── dedup_uniq_genomicAfiltered_merged_minus_raw.bw
+│           │   ├── dedup_uniq_genomicAfiltered_merged_plus_ext.bw
+│           │   └── dedup_uniq_genomicAfiltered_merged_plus_raw.bw
+│           └── polyA_reads/
+│               ├── polyAreads_beforegenomicAfiltering_minus_nowrongstrand_ext.bw
+│               ├── polyAreads_beforegenomicAfiltering_minus_nowrongstrand_raw.bw
+│               ├── polyAreads_beforegenomicAfiltering_plus_nowrongstrand_ext.bw
+│               └── polyAreads_beforegenomicAfiltering_plus_nowrongstrand_raw.bw
+└── PA_ref_stats.txt

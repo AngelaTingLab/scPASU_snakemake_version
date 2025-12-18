@@ -1,0 +1,104 @@
+## config file (yaml) with needed dependencies and variables: 
+
+## Analysis Variables
+# File prefix name / cell type of interest
+compartment: "fibroblasts"
+# Genome (hg38 or mm11)
+genomename: "hg38"
+# Chromosomes of interest (mouse or human)
+chrs: "chr1,chr2,chr3,chr4,chr5,chr6,chr7,chr8,chr9,chr10,chr11,chr12,chr13,chr14,chr15,chr16,chr17,chr18,chr19,chr20,chr21,chr22,chrX,chrY"
+# Names of samples as they appear in cellranger alignment output
+samples: ["Donor_6-Dome", "Donor_6-Dome-Nuc", "Donor_6-Neck", "Donor_6-Neck-Nuc", "Donor_6-UO", "Donor_6-UO-Nuc", "Donor_6-UVJ", "Donor_6-UVJ-Nuc"]
+# Set "true" or "false" depending on if you want your cells to be subsetted by specific barcodes to the cell type of interest. If false, the total bams will just be copied over to the 1c_subset_bam folder
+subset: "true"
+# Set "true" or "false" depending on if you want PAS filtering to be performed
+PAS_filtering: "true"
+# Kmer size for nucleotide plotting
+kmer_size: 201
+# Number of cores to use for parallel processing
+ncores: 20
+# Names of cell groups to compare during APA & DEG testing, as they appear in the metadata file
+group_one: "Intra_muscular_fibroblasts"
+group_two: "Peri_urothelial_fibroblasts"
+# Name of column in your metadata file that contains the cell group names
+meta_testing_column: "cell_type"
+# Percent threshold for APA filtering. Peaks that are expressed by less than this percentage of cells within the cell group will be filtered out.
+min_cell_expr_pct: 10
+# Percent thresholds for DEG filtering. Genes whose total counts across cells are less than cutoff_pct% of the number of cells will be filtered out.
+# Cell groups that have fewer than min_cell_per_group cells will be filtered out.
+cutoff_pct: 1
+min_cell_per_group: 10
+
+## polyAfilter variables
+# Maximum number of mismatches allowed within an internally primed read
+mism: 3
+# Number of threads for parallel computing while running polyA filtering
+nthreads: 32
+# Maximum coverage distance upstream of an internally primed read to look for sequencing reads to remove
+cov_len: 300
+# Minimal A length toclassify an internally primed read
+min_snr_len: 10
+
+## MACS2 variables
+# Effective genome size, change for an organism other than human
+gsize: "hs"
+# Size to extend towards 5'->3' reads shorter than this value to 
+extsize: 200
+
+## SAM to polyA variables
+# Minimum length of soft-clipped polyA tails
+min_clipped: 9
+# Minimum proportion of tail that is A or T required to call a polyA site 
+min_a_content: 0.85
+
+## Peak reference variables
+# Number of reads per bin to use when computing alignment signals
+binsize: 1
+# Size to extend peaks by
+# Make sure this is less than or equal to the MACS2 detected tag size- this can be found in the 2a_all_filtered_reads_peak_call_summits.log and 2a_polyAreads_peak_call_summits.log files
+peak_extsize: 90
+# Minimum number of polyA junctions/sites required for a peak to be retained in the reference (all_filtered_reads)
+afr_min_polya: 3
+# Minimum number of polyA junctions/sites required for a peak to be retained in the reference (polyA_reads)
+polyA_reads_min_polya: 1
+
+## Peak filtering variables
+# Maximum length of the peak processing region in bp
+maxwidth: 1000
+# Direction and distance, separated by a comma, in which to search for a polyA hexamer signal from a peak's PR region (optional PAS filtering variable)
+pr_extn: "5,50"
+# Maximum distance away from an annotated transcription end site a peak without a PAS signal can be to be retained (optional PAS filtering variable)
+tes_prox_distance: 100
+# Minimum per-gene read percentage for a peak to be retained
+min_cov: 10
+# Maximum percent of TU length that a peak can be from a transcriptional start site to be classified as TSS-proximal
+dist_pct: 0.1
+# For transcripts that both overlap with multiple exonic peaks and have multiple exons overlapping with those peaks, those with peak-overlapped exons adding up to less than frag_length bases in length will be a potential fragmented peak
+frag_length: 500
+# Distance to use when separating clusters of realigned reads on one exome
+gap_threshold: 0
+# A set of peaks will be flagged as one fragmented peak if each of them is made up of ≥ spliced_read_pct_thres spliced reads and these spliced reads when realigned against the right exome give rise to a peak made up of ≥ realign_peak_read_pct_thres of the total reads across the peaks
+spliced_read_pct_thres: 40
+realign_peak_read_pct_thres: 40
+
+## Analysis Paths
+# Absolute path to the workflow directory
+work_dir: "/user/home/path/to/snakemake/directory/workflow/"
+# Absolute path to folder with cellranger alignment outputs for all samples
+cellrangeroutputpath: "/user/home/path/to/alignments"
+# Absolute path to genome used for cellranger alignment
+cellrangerrefpath: "/user/home/path/to/genome/GRCh38_v2024/"
+# Path from workflow directory to folder containing tsv files for each sample with the barcodes of interest
+barcodepath: "data/subset_bams"
+# Path from workflow directory to Seurat object of cells of interest (optional, used during peak matrix merging to ensure barcode labels match)
+seurat_obj_file: "data/fibroblast_subset.rds"
+# Path from workflow directory to csv file containing metadata for cells of interest
+metadata_file: "data/fibroblasts_subset_metadata.csv"
+
+## Tool Installation Paths
+# Absolute path to installation of the polyAfilter package
+polyAfilterpath: "/user/home/path/to/package/polyAfilter/"
+# Absolute path to installation of the cellranger tool
+cellrangerpath: "/user/home/path/to/cellranger/7.1.0/" 
+# Absolute path to installation of the goldmine package (in this example, the goldmine package directory is in the Rlibrary directory)
+goldminepath: "/user/home/path/to/Rlibrary"
