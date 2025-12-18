@@ -10,7 +10,7 @@ Most of the needed packages and tools are included in the Snakemake environment.
 
 Use the following command to clone this repository:
 ```
-git clone https://github.com/aekrylova/scPASU.git
+git clone https://github.com/AngelaTingLab/scPASU_snakemake_version.git
 ```
 To run, navigate to the workflow folder within the directory structure and run the snakemake command from there. 
 
